@@ -7,10 +7,10 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pos: "foo"
+      time: "foo"
     };
     this.tick = this.tick.bind(this);
-    this.posUpdate = this.posUpdate.bind(this);
+    this.timeUpdate = this.timeUpdate.bind(this);
   }
 
   componentDidMount() {
@@ -24,8 +24,6 @@ export default class App extends React.Component {
   AudioStop(){
 
   }
-
-// Sample comment
 
   AudioPlay(audioID,filePath){
 
@@ -42,15 +40,15 @@ export default class App extends React.Component {
     );
   }
 
-  posUpdate(pos){
-    this.setState({pos: pos});
+  timeUpdate(time){
+    this.setState({time: time});
   }
 
   tick() {
     window.navigator.geolocation.getCurrentPosition(
-      (pos)=>{
+      (geoStamp)=>{
         // console.log({pos});
-        this.posUpdate(pos.timestamp);
+        this.timeUpdate(geoStamp.timestamp);
       }
     );
   }
@@ -61,7 +59,7 @@ export default class App extends React.Component {
         <Text>Open up App.js to start working on your app!</Text>
         <Text>Changes you make will automatically reload.</Text>
         <Text>Shake your phone to open the developer menu.</Text>
-        <Text>{this.state.pos} is state</Text>
+        <Text>{this.state.time} is time</Text>
       </View>
     );
   }
