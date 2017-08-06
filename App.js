@@ -21,6 +21,27 @@ export default class App extends React.Component {
     this.intervalId.clearInterval();
   }
 
+  AudioStop(){
+
+  }
+
+
+
+  AudioPlay(audioID,filePath){
+
+  }
+
+  startAudioCallback(date,audioID){
+    window.navigator.geolocation.getCurrentPosition(
+      (time)=>{
+        const timeout = date - time.timestamp;
+        setTimeout(function(){
+
+        },timeout);
+      }
+    );
+  }
+
   posUpdate(pos){
     this.setState({pos: pos});
   }
