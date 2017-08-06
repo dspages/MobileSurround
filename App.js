@@ -7,34 +7,40 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      time: new Date()
+      pos: "foo"
     };
     this.tick = this.tick.bind(this);
+    this.posUpdate = this.posUpdate.bind(this);
   }
 
   componentDidMount() {
-    this.intervalId = setInterval(this.tick, 10);
+    this.intervalId = setInterval(this.tick, 1);
   }
 
   componentWillUnmount() {
     this.intervalId.clearInterval();
   }
 
+  posUpdate(pos){
+    this.setState({pos: pos});
+  }
+
   tick() {
-    this.setState({time: new Date()});
+    window.navigator.geolocation.getCurrentPosition(
+      (pos)=>{
+        // console.log({pos});
+        this.posUpdate(pos.timestamp);
+      }
+    );
   }
 
   render() {
-    let hours = this.state.time.getHours();
-    let minutes = this.state.time.getMinutes();
-    let seconds = this.state.time.getSeconds();
-    let milliseconds = this.state.time.getMilliseconds();
     return (
       <View style={styles.container}>
         <Text>Open up App.js to start working on your app!</Text>
         <Text>Changes you make will automatically reload.</Text>
         <Text>Shake your phone to open the developer menu.</Text>
-        <Text>{hours}:{minutes}:{seconds}:{milliseconds} PDT</Text>
+        <Text>{this.state.pos} is state</Text>
       </View>
     );
   }
