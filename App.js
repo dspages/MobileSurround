@@ -7,10 +7,14 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      timeVerificationThreshold: 3,
+      timeVerificationNum: 0,
+      timeVerificationBool: false,
       pos: "foo"
     };
     this.tick = this.tick.bind(this);
     this.posUpdate = this.posUpdate.bind(this);
+    this.geoTimeMedian = this.geoTimeMedian.bind(this);
   }
 
   componentDidMount() {
@@ -21,25 +25,41 @@ export default class App extends React.Component {
     this.intervalId.clearInterval();
   }
 
-  AudioStop(){
+  audioStop(){
 
   }
 
 // Sample comment
 
-  AudioPlay(audioID,filePath){
+  audioPlay(){
 
   }
 
-  startAudioCallback(date,audioID){
-    window.navigator.geolocation.getCurrentPosition(
-      (time)=>{
-        const timeout = date - time.timestamp;
-        setTimeout(function(){
 
-        },timeout);
-      }
-    );
+  geoTimeMedian(pos){
+    if (this.timeVerificationNum === this.timeVerificationThreshold
+      && this.timeVerificationBool === true){
+        setTimeout(this.audioPlay,(this.state.date-pos.timestamp)*1000);
+        this.setState({timeVerificationBool: false});
+        this.setState({timeVerificationNum: 0});
+    }
+    else{
+      this.setState({timeVerificationNum: this.state.timeVerificationNum + 1});
+    }
+  }
+
+  startAudioCallback(date,audioID){
+    this.timeVerificationBool = true;
+    this.setState({date: date});
+    for (var i = 0; i < 5; i++) {
+      window.navigator.geolocation.getCurrentPosition(
+        (pos)=>{
+          this.geoTimeMedian(pos);
+        }
+      );
+    }
+
+
   }
 
   posUpdate(pos){
