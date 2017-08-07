@@ -1,6 +1,6 @@
 # Mobile Surround
 
-Single Page application for iPhone
+Single Page application for iPhone that takes an audio file(on a rails back-end), down-mix's it into component channels and serves to users a channel to play. The phones determine a master-slave relationship between them. The master determines to play a song at which point the phones use GPS satellite time to determine a start time with minimal delay/latency. This allows the multiple phones to play a stereo or surround experience.
 
 
 Trello Link :
@@ -37,12 +37,12 @@ https://trello.com/b/x8lJ6aQa/mobile-surround
 - Readme.
 
 ## Phase 2: (One day)
-- Peer to peer communication.(react-native-multipeer)
-- Peer to peer file-sharing.
-
-## Phase 3: (One day)
 - Audio playback.
 - Use test stereo audio(https://www.youtube.com/watch?v=4bJ0dvAl98k)
+
+## Phase 3: (One day)
+- Peer to peer communication.(react-native-multipeer)
+- Peer to peer file-sharing.
 
 ## Phase 4: (One day)
 - Down-mixing.
