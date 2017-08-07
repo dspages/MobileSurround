@@ -1,6 +1,10 @@
 # Mobile Surround
 
+<<<<<<< HEAD
 Single Page application for iPhone. This app will allow people to use multiple phones to create a surround sound system. A song or sound can be divided into its channels and then one channel will be played by each phone.
+=======
+Single Page application for iPhone that takes an audio file(on a rails back-end), down-mix's it into component channels and serves to users a channel to play. The phones determine a master-slave relationship between them. The master determines to play a song at which point the phones use GPS satellite time to determine a start time with minimal delay/latency. This allows the multiple phones to play a stereo or surround experience.
+>>>>>>> 9647b7511e9ef23084b47c124b04fe92e6303b90
 
 
 Trello Link :
@@ -30,6 +34,47 @@ https://trello.com/b/x8lJ6aQa/mobile-surround
 ## WireFrames:
 - See physical copies.
 
+
+### Technologies & Technical Challenges
+- Audio player.
+- Rails back-end audio Down-mixing.
+- react-native-multipeer handshake protocol.
+- Determining accurate date time.
+- Synchronize date time across multiple devices.
+
+
+### Things we accomplished this weekend.
+-  Hello world in react-native.
+-  Ping external source of truth(satellite).
+    - Synchronize date-time between multiple devices.
+    - Function created to find median response from n number of pings to satellite.
+    - Asynchronously determine medan results.
+-  Began work on finding audio library to play sound.
+-  Bug fixed development environment.
+-  Set up git workflow.
+
+### Group Members & Work Breakdown
+
+Our group consists of two members, Nick Bacon and Daniel Pages.
+
+
+- Nick:
+  - App store hosting.
+  - Audio playback.
+  - Stereo playback.
+  - Handshake protocol.
+  - Readme.
+  - Git workflow.
+
+- Daniel:
+  - Rails server.
+  - Time synchronization.
+  - Down-mixing on rails backend.
+  - Git workflow.
+  - App html/css.
+
+
+
 ## Phase 1: (One day)
 - Project init
 - Ping external source of truth.(react-native-gps)
@@ -38,12 +83,12 @@ https://trello.com/b/x8lJ6aQa/mobile-surround
 - Readme.
 
 ## Phase 2: (One day)
-- Peer to peer communication.(react-native-multipeer)
-- Peer to peer file-sharing.
-
-## Phase 3: (One day)
 - Audio playback.
 - Use test stereo audio(https://www.youtube.com/watch?v=4bJ0dvAl98k)
+
+## Phase 3: (One day)
+- Peer to peer communication.(react-native-multipeer)
+- Peer to peer file-sharing.
 
 ## Phase 4: (One day)
 - Down-mixing.
