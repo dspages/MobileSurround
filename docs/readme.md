@@ -1,6 +1,6 @@
 # Mobile Surround
 
-Single Page application for iPhone
+Single Page application for iPhone. This app will allow people to use multiple phones to create a surround sound system. A song or sound can be divided into its channels and then one channel will be played by each phone.
 
 
 Trello Link :
@@ -25,6 +25,7 @@ https://trello.com/b/x8lJ6aQa/mobile-surround
 - Share audio peer to peer/ or server.
 - Android functionality.
 - React-native-multipeer communication functionality.
+- API to allow other apps (games, video players, etc.) to use the program
 
 ## WireFrames:
 - See physical copies.
@@ -52,7 +53,7 @@ https://trello.com/b/x8lJ6aQa/mobile-surround
 - Create frontend.
 - Polish frontend.
 - Allow user to choose speaker.
-- 4 digit key to decide master / slave relationship
+- 4 digit key to allow phones to use database.
 
 
 ## Phase 6: (One day)

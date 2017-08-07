@@ -1,42 +1,51 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+
+console.log("attempting to load module");
+//
+// import SoundPlayer from 'react-native-sound-player';
+
+import testComponent from './components/TestComponent';
+
+console.log("attempting to load module");
+
+// try {
+//   SoundPlayer.playSoundFile('/MusicSamples/maldicion.m4a', 'm4a');
+// } catch (e) {
+//   console.log(`cannot play the sound file`, e);
+// }
 // Import the react-native-sound module
-var Sound = require('react-native-sound');
-// Enable playback in silence mode (iOS only)
-Sound.setCategory('Playback');
-
-
-var maldicion = new Sound('maldicion.m4a', Sound.MAIN_BUNDLE, (error) => {
-  if (error) {
-    console.log('failed to load the sound', error);
-    return;
-  }
-  // loaded successfully
-  console.log('duration in seconds: ' + maldicion.getDuration() + 'number of channels: ' + maldicion.getNumberOfChannels());
-});
-// Play the sound with an onEnd callback
-maldicion.play((success) => {
-  if (success) {
-    console.log('successfully finished playing');
-  } else {
-    console.log('playback failed due to audio decoding errors');
-  }
-});
-
-
-// Reduce the volume by half
-// maldicion.setVolume(0.5);
-
-// Position the sound to the full right in a stereo field
-// maldicion.setPan(1);
-
-// Loop indefinitely until stop() is called
-// maldicion.setNumberOfLoops(-1);
-
-// Get properties of the player instance
-console.log('volume: ' + maldicion.getVolume());
-console.log('pan: ' + maldicion.getPan());
-console.log('loops: ' + maldicion.getNumberOfLoops());
+// let Sound = require('react-native-sound');
+// // Enable playback in silence mode (iOS only)
+// console.log("beginning to play");
+// Sound.setCategory('Playback');
+//
+//
+// var maldicion = new Sound('./MusicSamples/maldicion.m4a');
+// console.log("attempting to play");
+// // Play the sound with an onEnd callback
+// maldicion.play((success) => {
+//   if (success) {
+//     console.log('successfully finished playing');
+//   } else {
+//     console.log('playback failed due to audio decoding errors');
+//   }
+// });
+//
+//
+// // Reduce the volume by half
+// // maldicion.setVolume(0.5);
+//
+// // Position the sound to the full right in a stereo field
+// // maldicion.setPan(1);
+//
+// // Loop indefinitely until stop() is called
+// // maldicion.setNumberOfLoops(-1);
+//
+// // Get properties of the player instance
+// console.log('volume: ' + maldicion.getVolume());
+// console.log('pan: ' + maldicion.getPan());
+// console.log('loops: ' + maldicion.getNumberOfLoops());
 
 // Seek to a specific point in seconds
 // maldicion.setCurrentTime(2.5);
@@ -57,30 +66,31 @@ console.log('loops: ' + maldicion.getNumberOfLoops());
 // Release the audio player resource
 // maldicion.release();
 
-maldicion.play();
 let myDate = Date.now();
 
 export default class App extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
       timeVerificationThreshold: 3,
       timeVerificationNum: 0,
       timeVerificationBool: false,
-      pos: "foo"
+      time: "bar"
     };
-    this.tick = this.tick.bind(this);
-    this.posUpdate = this.posUpdate.bind(this);
-    this.geoTimeMedian = this.geoTimeMedian.bind(this);
-
+    // this.tick = this.tick.bind(this);
+    // this.posUpdate = this.posUpdate.bind(this);
+    // this.geoTimeMedian = this.geoTimeMedian.bind(this);
   }
 
+
+
   componentDidMount() {
-    this.intervalId = setInterval(this.tick, 1);
+    // this.intervalId = setInterval(this.tick, 1);
   }
 
   componentWillUnmount() {
-    this.intervalId.clearInterval();
+    // this.intervalId.clearInterval();
   }
 
   audioStop(){
@@ -96,48 +106,49 @@ export default class App extends React.Component {
   }
 
 
-  geoTimeMedian(pos){
-    if (this.timeVerificationNum === this.timeVerificationThreshold
-      && this.timeVerificationBool === true){
-        setTimeout(this.audioPlay,(this.state.date-pos.timestamp)*1000);
-        this.setState({timeVerificationBool: false});
-        this.setState({timeVerificationNum: 0});
-    }
-    else{
-      this.setState({timeVerificationNum: this.state.timeVerificationNum + 1});
-    }
-  }
-
-  startAudioCallback(date,audioID){
-    this.timeVerificationBool = true;
-    this.setState({date: date});
-    for (var i = 0; i < 5; i++) {
-      window.navigator.geolocation.getCurrentPosition(
-        (pos)=>{
-          this.geoTimeMedian(pos);
-        }
-      );
-    }
-
-
-  }
+  // geoTimeMedian(pos){
+  //   if (this.timeVerificationNum === this.timeVerificationThreshold
+  //     && this.timeVerificationBool === true){
+  //       setTimeout(this.audioPlay,(this.state.date-pos.timestamp)*1000);
+  //       this.setState({timeVerificationBool: false});
+  //       this.setState({timeVerificationNum: 0});
+  //   }
+  //   else{
+  //     this.setState({timeVerificationNum: this.state.timeVerificationNum + 1});
+  //   }
+  // }
+  //
+  // startAudioCallback(date,audioID){
+  //   this.timeVerificationBool = true;
+  //   this.setState({date: date});
+  //   for (var i = 0; i < 5; i++) {
+  //     window.navigator.geolocation.getCurrentPosition(
+  //       (pos)=>{
+  //         this.geoTimeMedian(pos);
+  //       }
+  //     );
+  //   }
+  //
+  //
+  // }
 
   timeUpdate(time){
     this.setState({time: time});
   }
 
   tick() {
-    window.navigator.geolocation.getCurrentPosition(
-      (geoStamp)=>{
-        // console.log({pos});
-        this.timeUpdate(geoStamp.timestamp);
-      }
-    );
+    // window.navigator.geolocation.getCurrentPosition(
+    //   (geoStamp)=>{
+    //     // console.log({pos});
+    //     this.timeUpdate(geoStamp.timestamp);
+    //   }
+    // );
   }
 
   render() {
     return (
       <View style={styles.container}>
+        {testComponent}
         <Text>Open up App.js to start working on your app!</Text>
         <Text>Changes you make will automatically reload.</Text>
         <Text>Shake your phone to open the developer menu.</Text>
