@@ -29,6 +29,47 @@ https://trello.com/b/x8lJ6aQa/mobile-surround
 ## WireFrames:
 - See physical copies.
 
+
+### Technologies & Technical Challenges
+- Audio player.
+- Rails back-end audio Down-mixing.
+- react-native-multipeer handshake protocol.
+- Determining accurate date time.
+- Synchronize date time across multiple devices.
+
+
+### Things we accomplished this weekend.
+-  Hello world in react-native.
+-  Ping external source of truth(satellite).
+    - Synchronize date-time between multiple devices.
+    - Function created to find median response from n number of pings to satellite.
+    - Asynchronously determine medan results.
+-  Began work on finding audio library to play sound.
+-  Bug fixed development environment.
+-  Set up git workflow.
+
+### Group Members & Work Breakdown
+
+Our group consists of two members, Nick Bacon and Daniel Pages.
+
+
+- Nick:
+  - App store hosting.
+  - Audio playback.
+  - Stereo playback.
+  - Handshake protocol.
+  - Readme.
+  - Git workflow.
+
+- Daniel:
+  - Rails server.
+  - Time synchronization.
+  - Down-mixing on rails backend.
+  - Git workflow.
+  - App html/css.
+
+
+
 ## Phase 1: (One day)
 - Project init
 - Ping external source of truth.(react-native-gps)
