@@ -32,8 +32,18 @@ https://trello.com/b/x8lJ6aQa/mobile-surround
 - API to allow other apps (games, video players, etc.) to use the program
 
 ## WireFrames:
-- See physical copies.
 
+- An initial splash screen to greet users
+- [Splash screen](./images/frontpage.JPG)
+
+- A front page where users can choose to be host or client
+- [Splash screen](./images/host_page.JPG)
+
+- The view from the client's perspective. They can choose which speaker they are.
+- [Splash screen](./images/client_page.JPG)
+
+- The view from the host's perspective. They can choose which speaker they are, and additionally can select a song and send a play/pause command to all clients connected.
+- [Splash screen](./images/client_page.JPG)
 
 ### Technologies & Technical Challenges
 - Audio player.
@@ -48,7 +58,7 @@ https://trello.com/b/x8lJ6aQa/mobile-surround
 -  Ping external source of truth(satellite).
     - Synchronize date-time between multiple devices.
     - Function created to find median response from n number of pings to satellite.
-    - Asynchronously determine medan results.
+    - Asynchronously determine median results.
 -  Began work on finding audio library to play sound.
 -  Bug fixed development environment.
 -  Set up git workflow.
