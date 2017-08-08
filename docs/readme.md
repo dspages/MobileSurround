@@ -31,16 +31,16 @@ https://trello.com/b/x8lJ6aQa/mobile-surround
 ## WireFrames:
 
 - An initial splash screen to greet users
-- [Splash screen](./images/frontpage.JPG)
+- ![Splash Screen](./images/frontpage.png)
 
 - A front page where users can choose to be host or client
-- [Splash screen](./images/host_page.JPG)
+- ![Menu Page](./images/menu.png)
 
 - The view from the client's perspective. They can choose which speaker they are.
-- [Splash screen](./images/client_page.JPG)
+- ![Client Page](./images/client_page.png)
 
 - The view from the host's perspective. They can choose which speaker they are, and additionally can select a song and send a play/pause command to all clients connected.
-- [Splash screen](./images/client_page.JPG)
+- ![Host Page](./images/host_page.png)
 
 ### Technologies & Technical Challenges
 App will be built using react native with a rails backend. We will need to use the following libraries/technologies.
